@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import Reservation from './components/Reservation';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xxs: 0,
+      xs: 480,
+      sm: 700,
+      md: 1100,
+      lg: 1330,
+      xl: 1920,
+    },
+  },
+});
+
+
+
+class App extends React.Component {
+  render() {
+    return (
+      <MuiThemeProvider theme={theme}>
+        <div className="App" >
+          <Reservation />
+        </div>
+      </MuiThemeProvider>
+    )
+  }
 }
 
 export default App;
